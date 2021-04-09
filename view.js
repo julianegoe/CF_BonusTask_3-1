@@ -13,7 +13,7 @@ let View = {
         container.innerHTML = " ";
     },
     update: function(favs) {
-        /* this.clearFavs(); */
+        this.clearFavs();
         favs.forEach(function (fav) {
             View.showFavs(fav);
         })

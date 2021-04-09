@@ -5,20 +5,15 @@ let Controller = {
     M: Model,
     V: View,
     handleInput: function(event) {
-        console.log("hello world");
+        event.preventDefault();
         let movieObject = {
-        title: "New title",
-        director: "Cool Name"
+        title: event.target.elements.title.value,
+        director: event.target.elements.director.value
     };
         this.M.addFav(movieObject);
         this.V.update(this.M.favs)
-    },
-    hello: function() {
-        let container = document.querySelector("#movie-list");
-        container.innerText = "Hello World"
-
+        document.getElementById("fav").reset();
     }
 };
 
-
-document.querySelector("#fav").addEventListener("submit", (e) => {Controller.handleInput(e)})
+document.getElementById("fav").addEventListener("submit", (e) => Controller.handleInput(e));
